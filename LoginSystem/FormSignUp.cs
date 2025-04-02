@@ -11,13 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace LoginSystem
 {
-    public partial class FormLogin : Form
+    public partial class FormSignUp : Form
     {
-        FormSignUp formSignUp = new FormSignUp();
-        public FormLogin()
+        public FormSignUp()
         {
             InitializeComponent();
-            
         }
 
         #region COMANDOS / REFERENCIAS PARA MOVIMENTAR O FORMULARIO 
@@ -35,21 +33,15 @@ namespace LoginSystem
         #region BOTÕES 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair da tela de login?", "Sair do Login?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja sair da tela de registro de usuário?", "Sair do Registro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
-        }
-
-        private void btnEntrar_Click(object sender, EventArgs e)
-        {
-            formSignUp.Show();
-            Hide();
         }
         #endregion
 
         #region DICA DIGITAÇÃO DOS INPUTS USUARIO E SENHA
         private void inputUsuario_Enter(object sender, EventArgs e)
         {
-            if (inputUsuario.Text == "USUARIO")
+            if (inputUsuario.Text == "DIGITE SEU EMAIL")
             {
                 inputUsuario.Text = "";
                 inputUsuario.ForeColor = Color.LightGray;
@@ -59,13 +51,13 @@ namespace LoginSystem
         {
             if (inputUsuario.Text == "")
             {
-                inputUsuario.Text = "USUARIO";
+                inputUsuario.Text = "DIGITE SEU EMAIL";
                 inputUsuario.ForeColor = Color.DimGray;
             }
         }
         private void inputSenha_Enter(object sender, EventArgs e)
         {
-            if (inputSenha.Text == "SENHA")
+            if (inputSenha.Text == "DIGITE SUA SENHA")
             {
                 inputSenha.Text = "";
                 inputSenha.ForeColor = Color.LightGray;
@@ -77,7 +69,7 @@ namespace LoginSystem
         {
             if (inputSenha.Text == "")
             {
-                inputSenha.Text = "SENHA";
+                inputSenha.Text = "DIGITE SUA SENHA";
                 inputSenha.ForeColor = Color.DimGray;
                 // Sempre que estiver vazio, mostrar o valor da senha, entao o password tem que ser falso
                 inputSenha.UseSystemPasswordChar = false;
@@ -96,7 +88,7 @@ namespace LoginSystem
         private void iconeOlhoAberto_Click(object sender, EventArgs e)
         {
             // Para não ocultar a dica, pois quando é senha, não deve esconder a dica
-            if (inputSenha.Text == "SENHA")
+            if (inputSenha.Text == "DIGITE SUA SENHA")
                 inputSenha.UseSystemPasswordChar = false;
             else
                 inputSenha.UseSystemPasswordChar = true;
@@ -118,7 +110,5 @@ namespace LoginSystem
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-
-        
     }
 }
