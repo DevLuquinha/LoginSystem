@@ -39,9 +39,9 @@
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.iconeOlhoAberto = new System.Windows.Forms.PictureBox();
             this.iconeOlhoFechado = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.inputRepitaSenha = new System.Windows.Forms.TextBox();
+            this.linha3 = new System.Windows.Forms.Panel();
+            this.requisitoSenha = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -133,6 +133,7 @@
             this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "REGISTRAR";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCancelar
             // 
@@ -174,38 +175,40 @@
             this.iconeOlhoFechado.TabStop = false;
             this.iconeOlhoFechado.Click += new System.EventHandler(this.iconeOlhoFechado_Click);
             // 
-            // textBox1
+            // inputRepitaSenha
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(290, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(345, 19);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "DIGITE NOVAMENTE SUA SENHA";
+            this.inputRepitaSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.inputRepitaSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.inputRepitaSenha.ForeColor = System.Drawing.Color.DimGray;
+            this.inputRepitaSenha.Location = new System.Drawing.Point(290, 200);
+            this.inputRepitaSenha.Name = "inputRepitaSenha";
+            this.inputRepitaSenha.Size = new System.Drawing.Size(345, 19);
+            this.inputRepitaSenha.TabIndex = 11;
+            this.inputRepitaSenha.Text = "DIGITE NOVAMENTE SUA SENHA";
+            this.inputRepitaSenha.Enter += new System.EventHandler(this.inputRepitaSenha_Enter);
+            this.inputRepitaSenha.Leave += new System.EventHandler(this.inputRepitaSenha_Leave);
             // 
-            // panel1
+            // linha3
             // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.Location = new System.Drawing.Point(290, 223);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(345, 1);
-            this.panel1.TabIndex = 12;
+            this.linha3.BackColor = System.Drawing.Color.DimGray;
+            this.linha3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.linha3.Location = new System.Drawing.Point(290, 223);
+            this.linha3.Name = "linha3";
+            this.linha3.Size = new System.Drawing.Size(345, 1);
+            this.linha3.TabIndex = 12;
             // 
-            // label1
+            // requisitoSenha
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(641, 150);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 18);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Requisitos Senha:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.requisitoSenha.AutoSize = true;
+            this.requisitoSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.requisitoSenha.Font = new System.Drawing.Font("Arial", 12F);
+            this.requisitoSenha.ForeColor = System.Drawing.Color.DimGray;
+            this.requisitoSenha.Location = new System.Drawing.Point(641, 150);
+            this.requisitoSenha.Name = "requisitoSenha";
+            this.requisitoSenha.Size = new System.Drawing.Size(135, 18);
+            this.requisitoSenha.TabIndex = 13;
+            this.requisitoSenha.Text = "Requisitos Senha:";
+            this.requisitoSenha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -283,9 +286,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.requisitoSenha);
+            this.Controls.Add(this.inputRepitaSenha);
+            this.Controls.Add(this.linha3);
             this.Controls.Add(this.iconeOlhoFechado);
             this.Controls.Add(this.iconeOlhoAberto);
             this.Controls.Add(this.btnCancelar);
@@ -325,9 +328,9 @@
         private System.Windows.Forms.PictureBox btnCancelar;
         private System.Windows.Forms.PictureBox iconeOlhoAberto;
         private System.Windows.Forms.PictureBox iconeOlhoFechado;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox inputRepitaSenha;
+        private System.Windows.Forms.Panel linha3;
+        private System.Windows.Forms.Label requisitoSenha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

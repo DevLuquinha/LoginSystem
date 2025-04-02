@@ -36,6 +36,10 @@ namespace LoginSystem
             if (MessageBox.Show("Deseja sair da tela de registro de usuário?", "Sair do Registro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Application.Exit();
         }
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region DICA DIGITAÇÃO DOS INPUTS USUARIO E SENHA
@@ -75,12 +79,35 @@ namespace LoginSystem
                 inputSenha.UseSystemPasswordChar = false;
             }
         }
+        private void inputRepitaSenha_Enter(object sender, EventArgs e)
+        {
+            if (inputRepitaSenha.Text == "DIGITE NOVAMENTE SUA SENHA")
+            {
+                inputRepitaSenha.Text = "";
+                inputRepitaSenha.ForeColor = Color.LightGray;
+                // Caso o olho de ocultar a senha esteja ativado, o input será de password
+                inputRepitaSenha.UseSystemPasswordChar = iconeOlhoFechado.Visible == true;
+            }
+        }
+
+        private void inputRepitaSenha_Leave(object sender, EventArgs e)
+        {
+            if (inputRepitaSenha.Text == "")
+            {
+                inputRepitaSenha.Text = "DIGITE NOVAMENTE SUA SENHA";
+                inputRepitaSenha.ForeColor = Color.DimGray;
+                // Sempre que estiver vazio, mostrar o valor da senha, entao o password tem que ser falso
+                inputRepitaSenha.UseSystemPasswordChar = false;
+            }
+        }
         #endregion
 
         #region MOSTRAR SENHA, OLHO FECHADO E OLHO ABERTO
         private void iconeOlhoFechado_Click(object sender, EventArgs e)
         {
             inputSenha.UseSystemPasswordChar = false;
+            inputRepitaSenha.UseSystemPasswordChar = false;
+
             iconeOlhoFechado.Visible = iconeOlhoAberto.Visible == true;
             // Caso o olho fechado nao esteja visivel, mostrar o olho aberto
             iconeOlhoAberto.Visible  = iconeOlhoFechado.Visible == false;
@@ -90,8 +117,11 @@ namespace LoginSystem
             // Para não ocultar a dica, pois quando é senha, não deve esconder a dica
             if (inputSenha.Text == "DIGITE SUA SENHA")
                 inputSenha.UseSystemPasswordChar = false;
+            else if(inputRepitaSenha.Text == "DIGITE SUA SENHA")
+                inputRepitaSenha.UseSystemPasswordChar = false;
             else
                 inputSenha.UseSystemPasswordChar = true;
+                inputRepitaSenha.UseSystemPasswordChar = true;
             iconeOlhoAberto.Visible  = iconeOlhoFechado.Visible == true;
             // Caso o olho aberto nao esteja visivel, mostrar o olho falso
             iconeOlhoFechado.Visible = iconeOlhoAberto.Visible == false;
@@ -109,6 +139,9 @@ namespace LoginSystem
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         #endregion
+
+        
     }
 }
