@@ -138,4 +138,31 @@
         RDgIZ2BLhLvQgK04QSsQME9lmqZLhGa0RNEHDcA6ZelT2VwAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="iconeOlhoAberto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFjSURBVEhL7VQxTsNAEHSB0gApqJHyFEye48iFbdkoEZJL
+        4Bn5AUryAqjygXRUkPAACkqYOe0ll/U6pCCIIiONdN6Z3bvbO190xP9GlmUXeZ4PwBn4Cn4KOWZsQI/Y
+        90dd1ydFUQzBD/DrB9IzZI6k70ZVVZdImAcF9uWcuVLGBkw98CVIckQrHtGKK4xPhTFiE68HZG5Pym0j
+        SZIziIvA7HkjlgYwycjwL1hLLBtAGCujWzk19LeD7wdwhdgSvGdM8qbeH3BMbQ0EYmVwZFuos6DWGKMG
+        z7XWhDF1B3w8K9HRbxXjldYwwTu1sizPtSb6E3UHBHZOAPPS0N+opWnaNbTGBGaLQLdNtsPQ7iS3r+Ke
+        mxYRCFiHPKHGA+Uk3IlwfcgYz3QeuH3IRNs1RYGRWBqAfqv9oH1NCYjmjwZOeVuYKAvpt6y8/UfzOOhT
+        4cGHCwmHeexC8ClGK37/uT7iDxFF31gNJpsfu+F7AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="iconeOlhoFechado.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAIYSURBVEhL3ZQ7TxRRHMW3sEPRkEhFIEqhljZ0GizhUxBi
+        Yhiy2fdu1mj2o8DGgldDQaMVAZtNhEalMRqjiY2vAkEbH79zOfuYZWAp1oaTnMy95/84M3fuvanzhXw+
+        P1coFIY97S9oHMG/mLz8LyZq6uYxE54DzFd4foCHjH/Cj3ADzudyuaHQ4CxQU4qSTKbgL+kJ3IfVWq12
+        ITTpBRrfpuCPirtMhuGAWCqVbhCbhU+VZzbK5fJIaHISSLpG0TsV8PztZ8skCZjdIf5GufAtHHMoDhIv
+        0ey1ExuMb7p5zIQ1n2Bcr1Qqo6EQML6MtqlcuBdF0UWH2iDwRAlqlk6nB62d9k8+dZow1/LtQpnULR+B
+        t7rnwL7W13IAjdcc6/6SacYLIckoFovjaIfOn7Qc3LctVi21QNNvjiWZTISkDhB/7NxtSzGDR5ZaoOCL
+        Y4km3SD20DlbloLBpMWDbDZ73XIA+rJi3UwyQdPG+IGubd5eIgGhrkK427kLmI/Br46dasL4hfVFS22o
+        KcE9JcDNTCZzxSFtw1GKltA/Q5mtwlcwZqIfz3wncZsKJOptdVhkosNz16FjIJa4hXteGTruJDdUaD6j
+        wX2+6Ja/Upef1noGPm/mdZr0hN6C5CrURdY0Oonfad68Xs5uIrCmQxTNQ13NuqJ1VR/A93Cd+AN9FSf/
+        KvNjy9VXqGnTBEaW+wubzHl6LpBK/QPY5ur3Be+8xAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

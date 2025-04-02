@@ -38,7 +38,11 @@
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtEsqueceuSenha = new System.Windows.Forms.LinkLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
+            this.iconeOlhoAberto = new System.Windows.Forms.PictureBox();
+            this.iconeOlhoFechado = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoFechado)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -49,6 +53,7 @@
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 360);
             this.panelLogo.TabIndex = 0;
+            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseDown);
             // 
             // Linha1
             // 
@@ -57,7 +62,7 @@
             this.Linha1.Location = new System.Drawing.Point(290, 106);
             this.Linha1.Name = "Linha1";
             this.Linha1.Size = new System.Drawing.Size(440, 1);
-            this.Linha1.TabIndex = 1;
+            this.Linha1.TabIndex = 2;
             // 
             // inputUsuario
             // 
@@ -67,8 +72,10 @@
             this.inputUsuario.Location = new System.Drawing.Point(290, 83);
             this.inputUsuario.Name = "inputUsuario";
             this.inputUsuario.Size = new System.Drawing.Size(440, 19);
-            this.inputUsuario.TabIndex = 2;
+            this.inputUsuario.TabIndex = 1;
             this.inputUsuario.Text = "USUARIO";
+            this.inputUsuario.Enter += new System.EventHandler(this.inputUsuario_Enter);
+            this.inputUsuario.Leave += new System.EventHandler(this.inputUsuario_Leave);
             // 
             // inputSenha
             // 
@@ -78,8 +85,10 @@
             this.inputSenha.Location = new System.Drawing.Point(290, 148);
             this.inputSenha.Name = "inputSenha";
             this.inputSenha.Size = new System.Drawing.Size(440, 19);
-            this.inputSenha.TabIndex = 4;
+            this.inputSenha.TabIndex = 2;
             this.inputSenha.Text = "SENHA";
+            this.inputSenha.Enter += new System.EventHandler(this.inputSenha_Enter);
+            this.inputSenha.Leave += new System.EventHandler(this.inputSenha_Leave);
             // 
             // Linha2
             // 
@@ -114,7 +123,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(290, 233);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(440, 40);
-            this.btnEntrar.TabIndex = 6;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
             // 
@@ -126,7 +135,7 @@
             this.txtEsqueceuSenha.Location = new System.Drawing.Point(584, 184);
             this.txtEsqueceuSenha.Name = "txtEsqueceuSenha";
             this.txtEsqueceuSenha.Size = new System.Drawing.Size(146, 18);
-            this.txtEsqueceuSenha.TabIndex = 7;
+            this.txtEsqueceuSenha.TabIndex = 0;
             this.txtEsqueceuSenha.TabStop = true;
             this.txtEsqueceuSenha.Text = "Esqueceu a senha?";
             // 
@@ -141,6 +150,34 @@
             this.btnCancelar.Size = new System.Drawing.Size(25, 25);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.TabStop = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // iconeOlhoAberto
+            // 
+            this.iconeOlhoAberto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.iconeOlhoAberto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconeOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("iconeOlhoAberto.Image")));
+            this.iconeOlhoAberto.InitialImage = null;
+            this.iconeOlhoAberto.Location = new System.Drawing.Point(741, 148);
+            this.iconeOlhoAberto.Name = "iconeOlhoAberto";
+            this.iconeOlhoAberto.Size = new System.Drawing.Size(24, 24);
+            this.iconeOlhoAberto.TabIndex = 9;
+            this.iconeOlhoAberto.TabStop = false;
+            this.iconeOlhoAberto.Visible = false;
+            this.iconeOlhoAberto.Click += new System.EventHandler(this.iconeOlhoAberto_Click);
+            // 
+            // iconeOlhoFechado
+            // 
+            this.iconeOlhoFechado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.iconeOlhoFechado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconeOlhoFechado.Image = ((System.Drawing.Image)(resources.GetObject("iconeOlhoFechado.Image")));
+            this.iconeOlhoFechado.InitialImage = null;
+            this.iconeOlhoFechado.Location = new System.Drawing.Point(741, 148);
+            this.iconeOlhoFechado.Name = "iconeOlhoFechado";
+            this.iconeOlhoFechado.Size = new System.Drawing.Size(24, 24);
+            this.iconeOlhoFechado.TabIndex = 10;
+            this.iconeOlhoFechado.TabStop = false;
+            this.iconeOlhoFechado.Click += new System.EventHandler(this.iconeOlhoFechado_Click);
             // 
             // FormLogin
             // 
@@ -148,6 +185,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 360);
+            this.Controls.Add(this.iconeOlhoFechado);
+            this.Controls.Add(this.iconeOlhoAberto);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtEsqueceuSenha);
             this.Controls.Add(this.btnEntrar);
@@ -165,7 +204,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TELA DE LOGIN";
             this.Load += new System.EventHandler(this.FormLogin_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoFechado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,6 +224,8 @@
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.LinkLabel txtEsqueceuSenha;
         private System.Windows.Forms.PictureBox btnCancelar;
+        private System.Windows.Forms.PictureBox iconeOlhoAberto;
+        private System.Windows.Forms.PictureBox iconeOlhoFechado;
     }
 }
 
