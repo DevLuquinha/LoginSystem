@@ -59,6 +59,7 @@ namespace LoginSystem
                 inputUsuario.ForeColor = Color.DimGray;
             }
         }
+
         private void inputSenha_Enter(object sender, EventArgs e)
         {
             if (inputSenha.Text == "DIGITE SUA SENHA")
@@ -116,12 +117,19 @@ namespace LoginSystem
         {
             // Para não ocultar a dica, pois quando é senha, não deve esconder a dica
             if (inputSenha.Text == "DIGITE SUA SENHA")
+            {
                 inputSenha.UseSystemPasswordChar = false;
-            else if(inputRepitaSenha.Text == "DIGITE SUA SENHA")
+            }
+            if (inputRepitaSenha.Text == "DIGITE NOVAMENTE SUA SENHA")
+            {
                 inputRepitaSenha.UseSystemPasswordChar = false;
+            }
             else
+            {
                 inputSenha.UseSystemPasswordChar = true;
                 inputRepitaSenha.UseSystemPasswordChar = true;
+            }
+                
             iconeOlhoAberto.Visible  = iconeOlhoFechado.Visible == true;
             // Caso o olho aberto nao esteja visivel, mostrar o olho falso
             iconeOlhoFechado.Visible = iconeOlhoAberto.Visible == false;
