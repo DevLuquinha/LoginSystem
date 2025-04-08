@@ -41,6 +41,10 @@ namespace LoginSystem
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            
+        }
+        private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             formSignUp.Show();
             Hide();
         }
@@ -120,9 +124,6 @@ namespace LoginSystem
 
         #endregion
 
-        private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
+        
     }
 }
