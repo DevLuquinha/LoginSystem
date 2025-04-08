@@ -11,9 +11,12 @@ namespace LoginSystem
 {
     public partial class FormSignUp : Form
     {
-        public FormSignUp()
+        FormLogin CurrentFormLogin;
+
+        public FormSignUp(FormLogin currentForm)
         {
             InitializeComponent();
+            CurrentFormLogin = currentForm;
         }
 
         #region COMANDOS / REFERENCIAS PARA MOVIMENTAR O FORMULARIO 
@@ -54,17 +57,20 @@ namespace LoginSystem
 
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Plugin Makeng", "Cadastro Concluido" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Plugin Makeng!", "Cadastro Concluido!" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             else
             {
                 string erro = await response.Content.ReadAsStringAsync();
                 MessageBox.Show("Erro: " + erro, "Erro ao cadastrar usuário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+           
         }
         private void linkPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            CurrentFormLogin.Show();
+            Close();
         }
         #endregion
 

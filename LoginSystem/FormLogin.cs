@@ -15,11 +15,11 @@ namespace LoginSystem
 {
     public partial class FormLogin : Form
     {
-        FormSignUp formSignUp = new FormSignUp();
+        FormSignUp formSignUp;
         public FormLogin()
         {
             InitializeComponent();
-            
+            formSignUp = new FormSignUp(this);
         }
 
         #region COMANDOS / REFERENCIAS PARA MOVIMENTAR O FORMULARIO 
@@ -53,7 +53,8 @@ namespace LoginSystem
                 Email = inputUsuario.Text,
                 Password = inputSenha.Text
             };
-
+            
+            // Converte os dados para JSON
             string json = JsonConvert.SerializeObject(dados);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -62,6 +63,7 @@ namespace LoginSystem
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             else
             {
