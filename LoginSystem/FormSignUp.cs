@@ -40,6 +40,7 @@ namespace LoginSystem
             var httpClient = new HttpClient();
             var url = "https://localhost:7010/api/auth/signup";
 
+            // Objeto com os dados necessários
             var dados = new
             {
                 Email = inputUsuario.Text,

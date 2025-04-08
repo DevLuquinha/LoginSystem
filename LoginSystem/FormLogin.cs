@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace LoginSystem
 {
@@ -39,9 +41,33 @@ namespace LoginSystem
                 Application.Exit();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private async void btnEntrar_Click(object sender, EventArgs e)
         {
-            
+            // http da minha API
+            var httpClient = new HttpClient();
+            var url = "https://localhost:7010/api/auth/login";
+
+            // Objeto com os dados necessários
+            var dados = new
+            {
+                Email = inputUsuario.Text,
+                Password = inputSenha.Text
+            };
+
+            string json = JsonConvert.SerializeObject(dados);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync(url, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string erro = await response.Content.ReadAsStringAsync();
+                MessageBox.Show("Erro: " + erro, "Erro no login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
