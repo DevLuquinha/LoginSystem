@@ -121,7 +121,7 @@
   <data name="btnCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAPBJREFUSEvtk18OgjAMh3n1zZj47xDqyYABO4sXwBOhRi+D2ia/JjDErYBvfAkh
+        DwAACw8BkvkDpQAAAPBJREFUSEvtk18OgjAMh3n1zZj47xDqyYABO4sXwBOhRi+D2ia/JjDErYBvfAkh
         69p+GazRzGCyLFsURXFOkmSLkAqu43rug1AXTqDnnef5XSvifK7jeu6DcBfa3FDiFaKnMWaPrZ806+h5
         eOu0IrVACBUNFgg+0WiB0CeaTCC4Irqep0kFgnM9XxCqr7kXOsGBGtcQ1LzG1jRgkm9/Owk1bP1ka+1R
         1vQOHthe4jheNwXfbtcoEQuoSeUKhNEiV0CfaIetFoNFoQJBLdIKBJWIki4QVCxEOAhnYEuEu9CArThB
@@ -131,7 +131,7 @@
   <data name="btnCancelar.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAPBJREFUSEvtk18OgjAMh3n1zZj47xDqyYABO4sXwBOhRi+D2ia/JjDErYBvfAkh
+        DwAACw8BkvkDpQAAAPBJREFUSEvtk18OgjAMh3n1zZj47xDqyYABO4sXwBOhRi+D2ia/JjDErYBvfAkh
         69p+GazRzGCyLFsURXFOkmSLkAqu43rug1AXTqDnnef5XSvifK7jeu6DcBfa3FDiFaKnMWaPrZ806+h5
         eOu0IrVACBUNFgg+0WiB0CeaTCC4Irqep0kFgnM9XxCqr7kXOsGBGtcQ1LzG1jRgkm9/Owk1bP1ka+1R
         1vQOHthe4jheNwXfbtcoEQuoSeUKhNEiV0CfaIetFoNFoQJBLdIKBJWIki4QVCxEOAhnYEuEu9CArThB
@@ -141,7 +141,7 @@
   <data name="iconeOlhoAberto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAWNJREFUSEvtVDFOw0AQdIHSACmokfIUTJ7jyIVt2SgRkkvgGfkBSvICqPKBdFSQ
+        DwAACw8BkvkDpQAAAWNJREFUSEvtVDFOw0AQdIHSACmokfIUTJ7jyIVt2SgRkkvgGfkBSvICqPKBdFSQ
         8AAKSpg57SWX9TqkIIgiI4103pndu9s7X3TE/0aWZRd5ng/AGfgKfgo5ZmxAj9j3R13XJ0VRDMEP8OsH
         0jNkjqTvRlVVl0iYBwX25Zy5UsYGTD3wJUhyRCse0YorjE+FMWITrwdkbk/KbSNJkjOIi8DseSOWBjDJ
         yPAvWEssG0AYK6NbOTX0t4PvB3CF2BK8Z0zypt4fcExtDQRiZXBkW6izoNYYowbPtdaEMXUHfDwr0dFv
@@ -153,7 +153,7 @@
   <data name="iconeOlhoFechado.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAhhJREFUSEvdlDtPFFEcxbewQ9GQSEUgSqGWNnQaLOFTEGJiGLLZ927WaPajwMaC
+        DwAACw8BkvkDpQAAAhhJREFUSEvdlDtPFFEcxbewQ9GQSEUgSqGWNnQaLOFTEGJiGLLZ927WaPajwMaC
         V0NBoxUBm02ERqUxGqOJja8CQRsfv3M5+5hlYCnWhpOczL3n/zgzd+69qfOFfD4/VygUhj3tL2gcwb+Y
         vPwvJmrq5jETngPMV3h+gIeMf8KPcAPO53K5odDgLFBTipJMpuAv6Qnch9VarXYhNOkFGt+m4I+Ku0yG
         4YBYKpVuEJuFT5VnNsrl8khochJIukbROxXw/O1nyyQJmN0h/ka58C0ccygOEi/R7LUTG4xvunnMhDWf

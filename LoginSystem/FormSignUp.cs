@@ -40,6 +40,10 @@ namespace LoginSystem
         {
 
         }
+        private void linkPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
         #endregion
 
         #region DICA DIGITAÇÃO DOS INPUTS USUARIO E SENHA
@@ -148,8 +152,9 @@ namespace LoginSystem
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+
         #endregion
 
-        
+       
     }
 }
