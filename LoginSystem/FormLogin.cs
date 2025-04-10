@@ -50,6 +50,7 @@ namespace LoginSystem
             // Objeto com os dados necessários
             var dados = new
             {
+                Uid = "",
                 Email = inputUsuario.Text,
                 Password = inputSenha.Text
             };
@@ -63,6 +64,8 @@ namespace LoginSystem
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string token = await response.Content.ReadAsStringAsync();
+                MessageBox.Show($"Token: {token}", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else
@@ -73,9 +76,16 @@ namespace LoginSystem
         }
         private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            formSignUp.Show();
             Hide();
+            formSignUp.Location = this.Location;
+            formSignUp.ShowDialog();
+            Show();
         }
+        private void txtEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region DICA DIGITAÇÃO DOS INPUTS USUARIO E SENHA
@@ -150,8 +160,7 @@ namespace LoginSystem
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        #endregion
 
-        
+        #endregion
     }
 }

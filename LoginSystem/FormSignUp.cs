@@ -5,6 +5,10 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters;
+using System.Drawing.Imaging;
+using System.Linq;
 
 
 namespace LoginSystem
@@ -35,41 +39,63 @@ namespace LoginSystem
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja sair da tela de registro de usuário?", "Sair do Registro?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                Application.Exit();
+                Close();
         }
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
-            // http da minha API
-            var httpClient = new HttpClient();
-            var url = "https://localhost:7010/api/auth/signup";
-
-            // Objeto com os dados necessários
-            var dados = new
+            #region VALIDAÇÃO DOS INPUTS
+            if (!inputUsuario.Text.Contains("@"))
             {
-                Email = inputUsuario.Text,
-                Password = inputSenha.Text
-            };
-
-            string json = JsonConvert.SerializeObject(dados);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await httpClient.PostAsync(url, content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Plugin Makeng!", "Cadastro Concluido!" , MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                MessageBox.Show("Digite um e-mail válido! Verifique o e-mail digitado!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-            else
+            if (inputSenha.Text != inputRepitaSenha.Text)
             {
-                string erro = await response.Content.ReadAsStringAsync();
-                MessageBox.Show("Erro: " + erro, "Erro ao cadastrar usuário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("As senhas não conferem, digite a senha corretamente!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
-           
+            
+            #endregion
+
+            try
+            {
+                // http da minha API
+                var httpClient = new HttpClient();
+                var url = "https://localhost:7010/api/auth/signup";
+
+                // Objeto com os dados necessários
+                var dados = new
+                {
+                    Uid = Guid.NewGuid().ToString(),
+                    Email = inputUsuario.Text,
+                    Password = inputSenha.Text
+                };
+
+                string json = JsonConvert.SerializeObject(dados);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(url, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Plugin Makeng!", "Cadastro Concluido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+                else
+                {
+                    string erro = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Erro: " + erro, "Erro ao cadastrar usuário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível cadastrar o usuário, " +
+                    "verifique sua conexão wifi e tente novamente, caso o erro persistir entrar em contato com o suporte!", 
+                    "Erro cadastro!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
         private void linkPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CurrentFormLogin.Show();
             Close();
         }
         #endregion
@@ -179,10 +205,23 @@ namespace LoginSystem
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-
         #endregion
 
-       
+        #region DIGITAÇÃO DOS INPUTS
+        private void inputSenha_TextChanged(object sender, EventArgs e)
+        {
+            // Verifica se a senha tem pelo menos 8 caracteres
+            if (inputSenha.Text.Length >= 8)
+                txtMinCaracteres.ForeColor = Color.Green;
+            else
+                txtMinCaracteres.ForeColor = Color.Red;
+
+            // Verifica se a senha tem pelo menos 1 letra maiúscula
+            if (inputSenha.Text.Any(char.IsUpper))
+                txtLetraMaiuscula.ForeColor = Color.Green;
+            else
+                txtLetraMaiuscula.ForeColor = Color.Red;
+        }
+        #endregion
     }
 }

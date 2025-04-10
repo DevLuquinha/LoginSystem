@@ -42,11 +42,11 @@
             this.inputRepitaSenha = new System.Windows.Forms.TextBox();
             this.linha3 = new System.Windows.Forms.Panel();
             this.requisitoSenha = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtMinCaracteres = new System.Windows.Forms.Label();
+            this.txtLetraMaiuscula = new System.Windows.Forms.Label();
+            this.txtLetraMinuscula = new System.Windows.Forms.Label();
+            this.txtNumeros = new System.Windows.Forms.Label();
+            this.txtCaracterEspecial = new System.Windows.Forms.Label();
             this.linkPossuiConta = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).BeginInit();
@@ -78,6 +78,7 @@
             this.inputUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.inputUsuario.Location = new System.Drawing.Point(280, 83);
+            this.inputUsuario.MaxLength = 50;
             this.inputUsuario.Name = "inputUsuario";
             this.inputUsuario.Size = new System.Drawing.Size(478, 19);
             this.inputUsuario.TabIndex = 1;
@@ -91,10 +92,12 @@
             this.inputSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputSenha.ForeColor = System.Drawing.Color.DimGray;
             this.inputSenha.Location = new System.Drawing.Point(280, 144);
+            this.inputSenha.MaxLength = 30;
             this.inputSenha.Name = "inputSenha";
             this.inputSenha.Size = new System.Drawing.Size(345, 19);
             this.inputSenha.TabIndex = 2;
             this.inputSenha.Text = "DIGITE SUA SENHA";
+            this.inputSenha.TextChanged += new System.EventHandler(this.inputSenha_TextChanged);
             this.inputSenha.Enter += new System.EventHandler(this.inputSenha_Enter);
             this.inputSenha.Leave += new System.EventHandler(this.inputSenha_Leave);
             // 
@@ -131,7 +134,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(280, 293);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(478, 40);
-            this.btnRegistrar.TabIndex = 3;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "REGISTRAR";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -182,9 +185,10 @@
             this.inputRepitaSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputRepitaSenha.ForeColor = System.Drawing.Color.DimGray;
             this.inputRepitaSenha.Location = new System.Drawing.Point(280, 200);
+            this.inputRepitaSenha.MaxLength = 30;
             this.inputRepitaSenha.Name = "inputRepitaSenha";
             this.inputRepitaSenha.Size = new System.Drawing.Size(345, 19);
-            this.inputRepitaSenha.TabIndex = 11;
+            this.inputRepitaSenha.TabIndex = 3;
             this.inputRepitaSenha.Text = "DIGITE NOVAMENTE SUA SENHA";
             this.inputRepitaSenha.Enter += new System.EventHandler(this.inputRepitaSenha_Enter);
             this.inputRepitaSenha.Leave += new System.EventHandler(this.inputRepitaSenha_Leave);
@@ -207,74 +211,74 @@
             this.requisitoSenha.Location = new System.Drawing.Point(631, 150);
             this.requisitoSenha.Name = "requisitoSenha";
             this.requisitoSenha.Size = new System.Drawing.Size(135, 18);
-            this.requisitoSenha.TabIndex = 13;
+            this.requisitoSenha.TabIndex = 0;
             this.requisitoSenha.Text = "Requisitos Senha:";
             this.requisitoSenha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
+            // txtMinCaracteres
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 10F);
-            this.label2.ForeColor = System.Drawing.Color.Brown;
-            this.label2.Location = new System.Drawing.Point(631, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 16);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Mínimo 8 caracteres";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtMinCaracteres.AutoSize = true;
+            this.txtMinCaracteres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtMinCaracteres.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtMinCaracteres.ForeColor = System.Drawing.Color.Red;
+            this.txtMinCaracteres.Location = new System.Drawing.Point(631, 175);
+            this.txtMinCaracteres.Name = "txtMinCaracteres";
+            this.txtMinCaracteres.Size = new System.Drawing.Size(135, 16);
+            this.txtMinCaracteres.TabIndex = 14;
+            this.txtMinCaracteres.Text = "Mínimo 8 caracteres";
+            this.txtMinCaracteres.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label3
+            // txtLetraMaiuscula
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label3.Font = new System.Drawing.Font("Arial", 10F);
-            this.label3.ForeColor = System.Drawing.Color.Brown;
-            this.label3.Location = new System.Drawing.Point(631, 195);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Letra maiúscula";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtLetraMaiuscula.AutoSize = true;
+            this.txtLetraMaiuscula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtLetraMaiuscula.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtLetraMaiuscula.ForeColor = System.Drawing.Color.Red;
+            this.txtLetraMaiuscula.Location = new System.Drawing.Point(631, 195);
+            this.txtLetraMaiuscula.Name = "txtLetraMaiuscula";
+            this.txtLetraMaiuscula.Size = new System.Drawing.Size(107, 16);
+            this.txtLetraMaiuscula.TabIndex = 15;
+            this.txtLetraMaiuscula.Text = "Letra maiúscula";
+            this.txtLetraMaiuscula.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label4
+            // txtLetraMinuscula
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 10F);
-            this.label4.ForeColor = System.Drawing.Color.Brown;
-            this.label4.Location = new System.Drawing.Point(631, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Letra minúscula";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtLetraMinuscula.AutoSize = true;
+            this.txtLetraMinuscula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtLetraMinuscula.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtLetraMinuscula.ForeColor = System.Drawing.Color.Red;
+            this.txtLetraMinuscula.Location = new System.Drawing.Point(631, 215);
+            this.txtLetraMinuscula.Name = "txtLetraMinuscula";
+            this.txtLetraMinuscula.Size = new System.Drawing.Size(107, 16);
+            this.txtLetraMinuscula.TabIndex = 16;
+            this.txtLetraMinuscula.Text = "Letra minúscula";
+            this.txtLetraMinuscula.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label5
+            // txtNumeros
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label5.Font = new System.Drawing.Font("Arial", 10F);
-            this.label5.ForeColor = System.Drawing.Color.Brown;
-            this.label5.Location = new System.Drawing.Point(631, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Números";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtNumeros.AutoSize = true;
+            this.txtNumeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtNumeros.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNumeros.ForeColor = System.Drawing.Color.Red;
+            this.txtNumeros.Location = new System.Drawing.Point(631, 235);
+            this.txtNumeros.Name = "txtNumeros";
+            this.txtNumeros.Size = new System.Drawing.Size(63, 16);
+            this.txtNumeros.TabIndex = 17;
+            this.txtNumeros.Text = "Números";
+            this.txtNumeros.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label6
+            // txtCaracterEspecial
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.label6.Font = new System.Drawing.Font("Arial", 10F);
-            this.label6.ForeColor = System.Drawing.Color.Brown;
-            this.label6.Location = new System.Drawing.Point(631, 255);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Caracter especial";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.txtCaracterEspecial.AutoSize = true;
+            this.txtCaracterEspecial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtCaracterEspecial.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtCaracterEspecial.ForeColor = System.Drawing.Color.Red;
+            this.txtCaracterEspecial.Location = new System.Drawing.Point(631, 255);
+            this.txtCaracterEspecial.Name = "txtCaracterEspecial";
+            this.txtCaracterEspecial.Size = new System.Drawing.Size(118, 16);
+            this.txtCaracterEspecial.TabIndex = 18;
+            this.txtCaracterEspecial.Text = "Caracter especial";
+            this.txtCaracterEspecial.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // linkPossuiConta
             // 
@@ -284,7 +288,7 @@
             this.linkPossuiConta.Location = new System.Drawing.Point(517, 354);
             this.linkPossuiConta.Name = "linkPossuiConta";
             this.linkPossuiConta.Size = new System.Drawing.Size(241, 18);
-            this.linkPossuiConta.TabIndex = 19;
+            this.linkPossuiConta.TabIndex = 5;
             this.linkPossuiConta.TabStop = true;
             this.linkPossuiConta.Text = "Já possui conta? Faça login aqui.";
             this.linkPossuiConta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPossuiConta_LinkClicked);
@@ -296,11 +300,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 385);
             this.Controls.Add(this.linkPossuiConta);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCaracterEspecial);
+            this.Controls.Add(this.txtNumeros);
+            this.Controls.Add(this.txtLetraMinuscula);
+            this.Controls.Add(this.txtLetraMaiuscula);
+            this.Controls.Add(this.txtMinCaracteres);
             this.Controls.Add(this.requisitoSenha);
             this.Controls.Add(this.inputRepitaSenha);
             this.Controls.Add(this.linha3);
@@ -319,7 +323,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
             this.Opacity = 0.95D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "TELA DE LOGIN";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
@@ -346,11 +350,11 @@
         private System.Windows.Forms.TextBox inputRepitaSenha;
         private System.Windows.Forms.Panel linha3;
         private System.Windows.Forms.Label requisitoSenha;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txtMinCaracteres;
+        private System.Windows.Forms.Label txtLetraMaiuscula;
+        private System.Windows.Forms.Label txtLetraMinuscula;
+        private System.Windows.Forms.Label txtNumeros;
+        private System.Windows.Forms.Label txtCaracterEspecial;
         private System.Windows.Forms.LinkLabel linkPossuiConta;
     }
 }

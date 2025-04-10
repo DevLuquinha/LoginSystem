@@ -71,6 +71,7 @@
             this.inputUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputUsuario.ForeColor = System.Drawing.Color.DimGray;
             this.inputUsuario.Location = new System.Drawing.Point(283, 83);
+            this.inputUsuario.MaxLength = 50;
             this.inputUsuario.Name = "inputUsuario";
             this.inputUsuario.Size = new System.Drawing.Size(475, 19);
             this.inputUsuario.TabIndex = 1;
@@ -84,6 +85,7 @@
             this.inputSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputSenha.ForeColor = System.Drawing.Color.DimGray;
             this.inputSenha.Location = new System.Drawing.Point(283, 148);
+            this.inputSenha.MaxLength = 30;
             this.inputSenha.Name = "inputSenha";
             this.inputSenha.Size = new System.Drawing.Size(440, 19);
             this.inputSenha.TabIndex = 2;
@@ -141,6 +143,7 @@
             this.txtEsqueceuSenha.TabIndex = 0;
             this.txtEsqueceuSenha.TabStop = true;
             this.txtEsqueceuSenha.Text = "Esqueceu a senha?";
+            this.txtEsqueceuSenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.txtEsqueceuSenha_LinkClicked);
             // 
             // btnCancelar
             // 
@@ -217,7 +220,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormLogin";
-            this.Opacity = 0.95D;
+            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TELA DE LOGIN";
             this.Load += new System.EventHandler(this.FormLogin_Load);
