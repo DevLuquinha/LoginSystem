@@ -76,7 +76,6 @@ namespace LoginSystem
                 return;
             }
 
-            MessageBox.Show($"Email: {Email} || Senha: {Password}");
             try
             {
                 // http da minha API

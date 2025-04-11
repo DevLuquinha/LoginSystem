@@ -43,36 +43,59 @@ namespace LoginSystem
 
         private async void btnEntrar_Click(object sender, EventArgs e)
         {
-            // http da minha API
-            var httpClient = new HttpClient();
-            var url = "https://localhost:7010/api/auth/login";
-
-            // Objeto com os dados necessários
-            var dados = new
+            // Verifica se o usuario e senha estão preenchidos
+            if (inputUsuario.Text == "E-MAIL" || inputUsuario.Text == "" || !inputUsuario.Text.Contains("@"))
             {
-                Uid = "",
-                Email = inputUsuario.Text,
-                Password = inputSenha.Text
-            };
-            
-            // Converte os dados para JSON
-            string json = JsonConvert.SerializeObject(dados);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await httpClient.PostAsync(url, content);
-
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                string token = await response.Content.ReadAsStringAsync();
-                MessageBox.Show($"Token: {token}", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                MessageBox.Show("Preencha o seu e-mail!", "E-mail vazio!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                inputUsuario.Focus();
+                return;
             }
-            else
+            else if (inputSenha.Text == "SENHA" || inputSenha.Text == "")
             {
-                string erro = await response.Content.ReadAsStringAsync();
-                MessageBox.Show("Erro: " + erro, "Erro no login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Preencha a senha!", "Senha vazia!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                inputSenha.Focus();
+                return;
             }
+
+            try
+            {
+                // http da minha API
+                var httpClient = new HttpClient();
+                var url = "https://localhost:7010/api/auth/login";
+
+                // Objeto com os dados necessários
+                var dados = new
+                {
+                    Uid = "",
+                    Email = inputUsuario.Text,
+                    Password = inputSenha.Text
+                };
+
+                // Converte os dados para JSON
+                string json = JsonConvert.SerializeObject(dados);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(url, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string token = await response.Content.ReadAsStringAsync();
+                    Close();
+                }
+                else
+                {
+                    string erro = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Erro: " + erro, "Erro no login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível logar nessa conta, " +
+                    "verifique sua conexão wifi e tente novamente, caso o erro persistir entrar em contato com o suporte!",
+                    "Erro Login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
         private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -83,15 +106,14 @@ namespace LoginSystem
         }
         private void txtEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            
         }
-
         #endregion
 
         #region DICA DIGITAÇÃO DOS INPUTS USUARIO E SENHA
         private void inputUsuario_Enter(object sender, EventArgs e)
         {
-            if (inputUsuario.Text == "USUARIO")
+            if (inputUsuario.Text == "E-MAIL")
             {
                 inputUsuario.Text = "";
                 inputUsuario.ForeColor = Color.LightGray;
@@ -101,7 +123,7 @@ namespace LoginSystem
         {
             if (inputUsuario.Text == "")
             {
-                inputUsuario.Text = "USUARIO";
+                inputUsuario.Text = "E-MAIL";
                 inputUsuario.ForeColor = Color.DimGray;
             }
         }

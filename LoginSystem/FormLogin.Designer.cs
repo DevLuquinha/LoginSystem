@@ -75,7 +75,7 @@
             this.inputUsuario.Name = "inputUsuario";
             this.inputUsuario.Size = new System.Drawing.Size(475, 19);
             this.inputUsuario.TabIndex = 1;
-            this.inputUsuario.Text = "USUARIO";
+            this.inputUsuario.Text = "E-MAIL";
             this.inputUsuario.Enter += new System.EventHandler(this.inputUsuario_Enter);
             this.inputUsuario.Leave += new System.EventHandler(this.inputUsuario_Leave);
             // 
