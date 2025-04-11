@@ -16,6 +16,8 @@ namespace LoginSystem
     public partial class FormSignUp : Form
     {
         FormLogin CurrentFormLogin;
+        private string Email { get; set; }
+        private string Password { get; set; }
 
         public FormSignUp(FormLogin currentForm)
         {
@@ -49,14 +51,32 @@ namespace LoginSystem
                 MessageBox.Show("Digite um e-mail válido! Verifique o e-mail digitado!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (txtMinCaracteres.ForeColor == Color.Red || txtLetraMaiuscula.ForeColor == Color.Red ||
+                txtLetraMinuscula.ForeColor == Color.Red || txtNumeros.ForeColor == Color.Red || txtCaracterEspecial.ForeColor == Color.Red)
+            {
+                MessageBox.Show("Senha muito fraca!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (inputSenha.Text != inputRepitaSenha.Text)
             {
                 MessageBox.Show("As senhas não conferem, digite a senha corretamente!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
             #endregion
 
+            #region LIMPEZA DOS INPUTS
+            // Retira os espaços em branco do começo e do final
+            Email = inputUsuario.Text.Trim();   
+
+            Password = inputSenha.Text.Trim();
+            #endregion
+
+            if(MessageBox.Show($"Realmente deseja criar uma conta com o e-mail:\n{Email}?", "Criar conta?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
+            MessageBox.Show($"Email: {Email} || Senha: {Password}");
             try
             {
                 // http da minha API
@@ -67,8 +87,8 @@ namespace LoginSystem
                 var dados = new
                 {
                     Uid = Guid.NewGuid().ToString(),
-                    Email = inputUsuario.Text,
-                    Password = inputSenha.Text
+                    Email = Email,
+                    Password = Password
                 };
 
                 string json = JsonConvert.SerializeObject(dados);
@@ -96,6 +116,24 @@ namespace LoginSystem
         }
         private void linkPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            // Limpa os inputs
+            inputUsuario.Text = "DIGITE SEU EMAIL";
+            inputSenha.Text = "DIGITE SUA SENHA";
+            inputSenha.UseSystemPasswordChar = false;
+            inputRepitaSenha.Text = "DIGITE NOVAMENTE SUA SENHA";
+            inputRepitaSenha.UseSystemPasswordChar = false;
+
+            // Limpa o icone de olho
+            iconeOlhoFechado.Visible = true;
+            iconeOlhoAberto.Visible = false;
+
+            // Limpa requisitos senha
+            txtMinCaracteres.ForeColor = Color.Red;
+            txtLetraMaiuscula.ForeColor = Color.Red;
+            txtLetraMinuscula.ForeColor = Color.Red;
+            txtNumeros.ForeColor = Color.Red;
+            txtCaracterEspecial.ForeColor = Color.Red;
+
             Close();
         }
         #endregion
@@ -210,18 +248,64 @@ namespace LoginSystem
         #region DIGITAÇÃO DOS INPUTS
         private void inputSenha_TextChanged(object sender, EventArgs e)
         {
-            // Verifica se a senha tem pelo menos 8 caracteres
-            if (inputSenha.Text.Length >= 8)
-                txtMinCaracteres.ForeColor = Color.Green;
+            if(inputSenha.Text == "DIGITE SUA SENHA")
+                inputSenha.UseSystemPasswordChar = false;
             else
-                txtMinCaracteres.ForeColor = Color.Red;
+            {
+                // Verifica se a senha tem pelo menos 8 caracteres
+                if (inputSenha.Text.Length >= 8)
+                    txtMinCaracteres.ForeColor = Color.Green;
+                else
+                    txtMinCaracteres.ForeColor = Color.Red;
 
-            // Verifica se a senha tem pelo menos 1 letra maiúscula
-            if (inputSenha.Text.Any(char.IsUpper))
-                txtLetraMaiuscula.ForeColor = Color.Green;
-            else
-                txtLetraMaiuscula.ForeColor = Color.Red;
+                // Verifica se a senha tem pelo menos 1 letra maiúscula
+                if (inputSenha.Text.Any(char.IsUpper))
+                    txtLetraMaiuscula.ForeColor = Color.Green;
+                else
+                    txtLetraMaiuscula.ForeColor = Color.Red;
+
+                // Verifica se a senha tem pelo menos 1 letra minúscula
+                if (inputSenha.Text.Any(char.IsLower))
+                    txtLetraMinuscula.ForeColor = Color.Green;
+                else
+                    txtLetraMinuscula.ForeColor = Color.Red;
+
+                // Verifica se a senha tem pelo menos 1 número
+                if (inputSenha.Text.Any(char.IsDigit))
+                    txtNumeros.ForeColor = Color.Green;
+                else
+                    txtNumeros.ForeColor = Color.Red;
+
+                // Verifica se a senha tem pelo menos 1 caractere especial
+                if (inputSenha.Text.Any(c => !char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)))
+                    txtCaracterEspecial.ForeColor = Color.Green;
+                else
+                    txtCaracterEspecial.ForeColor = Color.Red;
+
+                // Verificar se a senha é fraca, média ou forte
+                if (txtMinCaracteres.ForeColor != Color.Green &&
+                    txtLetraMinuscula.ForeColor != Color.Green && txtNumeros.ForeColor != Color.Green)
+                {
+                    txtStatusSenha.Text = "Senha fraca :(";
+                    txtStatusSenha.ForeColor = Color.Red;
+                }
+                if (txtMinCaracteres.ForeColor == Color.Green && 
+                    txtLetraMinuscula.ForeColor == Color.Green && txtNumeros.ForeColor == Color.Green)
+                {
+                    txtStatusSenha.Text = "Senha média :o";
+                    txtStatusSenha.ForeColor = Color.Yellow;
+                }
+                if (txtMinCaracteres.ForeColor == Color.Green && txtLetraMaiuscula.ForeColor == Color.Green &&
+                txtLetraMinuscula.ForeColor == Color.Green && txtNumeros.ForeColor == Color.Green && txtCaracterEspecial.ForeColor == Color.Green)
+                {
+                    txtStatusSenha.Text = "Senha forte :)";
+                    txtStatusSenha.ForeColor = Color.Green;
+                }
+                
+            }
         }
         #endregion
+
+       
     }
 }

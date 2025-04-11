@@ -48,6 +48,7 @@
             this.txtNumeros = new System.Windows.Forms.Label();
             this.txtCaracterEspecial = new System.Windows.Forms.Label();
             this.linkPossuiConta = new System.Windows.Forms.LinkLabel();
+            this.txtStatusSenha = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoFechado)).BeginInit();
@@ -59,7 +60,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 385);
+            this.panelLogo.Size = new System.Drawing.Size(250, 392);
             this.panelLogo.TabIndex = 0;
             this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLogo_MouseDown);
             // 
@@ -131,11 +132,11 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRegistrar.Location = new System.Drawing.Point(280, 293);
+            this.btnRegistrar.Location = new System.Drawing.Point(280, 298);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(478, 40);
             this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "REGISTRAR";
+            this.btnRegistrar.Text = "CADASTRAR";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -208,7 +209,7 @@
             this.requisitoSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.requisitoSenha.Font = new System.Drawing.Font("Arial", 12F);
             this.requisitoSenha.ForeColor = System.Drawing.Color.DimGray;
-            this.requisitoSenha.Location = new System.Drawing.Point(631, 150);
+            this.requisitoSenha.Location = new System.Drawing.Point(633, 145);
             this.requisitoSenha.Name = "requisitoSenha";
             this.requisitoSenha.Size = new System.Drawing.Size(135, 18);
             this.requisitoSenha.TabIndex = 0;
@@ -221,7 +222,7 @@
             this.txtMinCaracteres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtMinCaracteres.Font = new System.Drawing.Font("Arial", 10F);
             this.txtMinCaracteres.ForeColor = System.Drawing.Color.Red;
-            this.txtMinCaracteres.Location = new System.Drawing.Point(631, 175);
+            this.txtMinCaracteres.Location = new System.Drawing.Point(633, 170);
             this.txtMinCaracteres.Name = "txtMinCaracteres";
             this.txtMinCaracteres.Size = new System.Drawing.Size(135, 16);
             this.txtMinCaracteres.TabIndex = 14;
@@ -234,7 +235,7 @@
             this.txtLetraMaiuscula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtLetraMaiuscula.Font = new System.Drawing.Font("Arial", 10F);
             this.txtLetraMaiuscula.ForeColor = System.Drawing.Color.Red;
-            this.txtLetraMaiuscula.Location = new System.Drawing.Point(631, 195);
+            this.txtLetraMaiuscula.Location = new System.Drawing.Point(633, 190);
             this.txtLetraMaiuscula.Name = "txtLetraMaiuscula";
             this.txtLetraMaiuscula.Size = new System.Drawing.Size(107, 16);
             this.txtLetraMaiuscula.TabIndex = 15;
@@ -247,7 +248,7 @@
             this.txtLetraMinuscula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtLetraMinuscula.Font = new System.Drawing.Font("Arial", 10F);
             this.txtLetraMinuscula.ForeColor = System.Drawing.Color.Red;
-            this.txtLetraMinuscula.Location = new System.Drawing.Point(631, 215);
+            this.txtLetraMinuscula.Location = new System.Drawing.Point(633, 210);
             this.txtLetraMinuscula.Name = "txtLetraMinuscula";
             this.txtLetraMinuscula.Size = new System.Drawing.Size(107, 16);
             this.txtLetraMinuscula.TabIndex = 16;
@@ -260,7 +261,7 @@
             this.txtNumeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtNumeros.Font = new System.Drawing.Font("Arial", 10F);
             this.txtNumeros.ForeColor = System.Drawing.Color.Red;
-            this.txtNumeros.Location = new System.Drawing.Point(631, 235);
+            this.txtNumeros.Location = new System.Drawing.Point(633, 230);
             this.txtNumeros.Name = "txtNumeros";
             this.txtNumeros.Size = new System.Drawing.Size(63, 16);
             this.txtNumeros.TabIndex = 17;
@@ -273,7 +274,7 @@
             this.txtCaracterEspecial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtCaracterEspecial.Font = new System.Drawing.Font("Arial", 10F);
             this.txtCaracterEspecial.ForeColor = System.Drawing.Color.Red;
-            this.txtCaracterEspecial.Location = new System.Drawing.Point(631, 255);
+            this.txtCaracterEspecial.Location = new System.Drawing.Point(633, 250);
             this.txtCaracterEspecial.Name = "txtCaracterEspecial";
             this.txtCaracterEspecial.Size = new System.Drawing.Size(118, 16);
             this.txtCaracterEspecial.TabIndex = 18;
@@ -285,7 +286,7 @@
             this.linkPossuiConta.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(255)))));
             this.linkPossuiConta.AutoSize = true;
             this.linkPossuiConta.LinkColor = System.Drawing.Color.DimGray;
-            this.linkPossuiConta.Location = new System.Drawing.Point(517, 354);
+            this.linkPossuiConta.Location = new System.Drawing.Point(517, 359);
             this.linkPossuiConta.Name = "linkPossuiConta";
             this.linkPossuiConta.Size = new System.Drawing.Size(241, 18);
             this.linkPossuiConta.TabIndex = 5;
@@ -293,12 +294,26 @@
             this.linkPossuiConta.Text = "Já possui conta? Faça login aqui.";
             this.linkPossuiConta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPossuiConta_LinkClicked);
             // 
+            // txtStatusSenha
+            // 
+            this.txtStatusSenha.AutoSize = true;
+            this.txtStatusSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtStatusSenha.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtStatusSenha.ForeColor = System.Drawing.Color.Red;
+            this.txtStatusSenha.Location = new System.Drawing.Point(517, 241);
+            this.txtStatusSenha.Name = "txtStatusSenha";
+            this.txtStatusSenha.Size = new System.Drawing.Size(105, 18);
+            this.txtStatusSenha.TabIndex = 19;
+            this.txtStatusSenha.Text = "Senha fraca :(";
+            this.txtStatusSenha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(780, 385);
+            this.ClientSize = new System.Drawing.Size(780, 392);
+            this.Controls.Add(this.txtStatusSenha);
             this.Controls.Add(this.linkPossuiConta);
             this.Controls.Add(this.txtCaracterEspecial);
             this.Controls.Add(this.txtNumeros);
@@ -322,7 +337,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
-            this.Opacity = 0.95D;
+            this.Opacity = 0.98D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "TELA DE LOGIN";
             this.Load += new System.EventHandler(this.FormLogin_Load);
@@ -356,6 +371,7 @@
         private System.Windows.Forms.Label txtNumeros;
         private System.Windows.Forms.Label txtCaracterEspecial;
         private System.Windows.Forms.LinkLabel linkPossuiConta;
+        private System.Windows.Forms.Label txtStatusSenha;
     }
 }
 
