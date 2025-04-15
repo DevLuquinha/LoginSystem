@@ -80,7 +80,7 @@ namespace LoginSystem
             {
                 // http da minha API
                 var httpClient = new HttpClient();
-                var url = "https://localhost:7010/api/auth/signup";
+                var url = "https://loginapi-gz6f.onrender.com/api/Auth/signup";
 
                 // Objeto com os dados necessários
                 var dados = new
@@ -300,11 +300,8 @@ namespace LoginSystem
                     txtStatusSenha.Text = "Senha forte :)";
                     txtStatusSenha.ForeColor = Color.Green;
                 }
-                
             }
         }
         #endregion
-
-       
     }
 }

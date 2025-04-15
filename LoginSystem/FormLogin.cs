@@ -61,7 +61,7 @@ namespace LoginSystem
             {
                 // http da minha API
                 var httpClient = new HttpClient();
-                var url = "https://localhost:7010/api/auth/login";
+                var url = "https://loginapi-gz6f.onrender.com/api/auth/login";
 
                 // Objeto com os dados necessários
                 var dados = new
@@ -95,7 +95,6 @@ namespace LoginSystem
                     "verifique sua conexão wifi e tente novamente, caso o erro persistir entrar em contato com o suporte!",
                     "Erro Login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
         private void linkNaoPossuiConta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
