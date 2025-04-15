@@ -49,6 +49,7 @@
             this.txtCaracterEspecial = new System.Windows.Forms.Label();
             this.linkPossuiConta = new System.Windows.Forms.LinkLabel();
             this.txtStatusSenha = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoFechado)).BeginInit();
@@ -93,9 +94,9 @@
             this.inputSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputSenha.ForeColor = System.Drawing.Color.DimGray;
             this.inputSenha.Location = new System.Drawing.Point(280, 144);
-            this.inputSenha.MaxLength = 30;
+            this.inputSenha.MaxLength = 26;
             this.inputSenha.Name = "inputSenha";
-            this.inputSenha.Size = new System.Drawing.Size(345, 19);
+            this.inputSenha.Size = new System.Drawing.Size(299, 19);
             this.inputSenha.TabIndex = 2;
             this.inputSenha.Text = "DIGITE SUA SENHA";
             this.inputSenha.TextChanged += new System.EventHandler(this.inputSenha_TextChanged);
@@ -159,7 +160,7 @@
             this.iconeOlhoAberto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconeOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("iconeOlhoAberto.Image")));
             this.iconeOlhoAberto.InitialImage = null;
-            this.iconeOlhoAberto.Location = new System.Drawing.Point(280, 239);
+            this.iconeOlhoAberto.Location = new System.Drawing.Point(599, 140);
             this.iconeOlhoAberto.Name = "iconeOlhoAberto";
             this.iconeOlhoAberto.Size = new System.Drawing.Size(24, 24);
             this.iconeOlhoAberto.TabIndex = 9;
@@ -173,7 +174,7 @@
             this.iconeOlhoFechado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconeOlhoFechado.Image = ((System.Drawing.Image)(resources.GetObject("iconeOlhoFechado.Image")));
             this.iconeOlhoFechado.InitialImage = null;
-            this.iconeOlhoFechado.Location = new System.Drawing.Point(280, 239);
+            this.iconeOlhoFechado.Location = new System.Drawing.Point(599, 140);
             this.iconeOlhoFechado.Name = "iconeOlhoFechado";
             this.iconeOlhoFechado.Size = new System.Drawing.Size(24, 24);
             this.iconeOlhoFechado.TabIndex = 10;
@@ -186,7 +187,7 @@
             this.inputRepitaSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputRepitaSenha.ForeColor = System.Drawing.Color.DimGray;
             this.inputRepitaSenha.Location = new System.Drawing.Point(280, 200);
-            this.inputRepitaSenha.MaxLength = 30;
+            this.inputRepitaSenha.MaxLength = 26;
             this.inputRepitaSenha.Name = "inputRepitaSenha";
             this.inputRepitaSenha.Size = new System.Drawing.Size(345, 19);
             this.inputRepitaSenha.TabIndex = 3;
@@ -307,12 +308,20 @@
             this.txtStatusSenha.Text = "Senha fraca :(";
             this.txtStatusSenha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(280, 236);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(231, 23);
+            this.progressBar1.TabIndex = 20;
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 392);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtStatusSenha);
             this.Controls.Add(this.linkPossuiConta);
             this.Controls.Add(this.txtCaracterEspecial);
@@ -372,6 +381,7 @@
         private System.Windows.Forms.Label txtCaracterEspecial;
         private System.Windows.Forms.LinkLabel linkPossuiConta;
         private System.Windows.Forms.Label txtStatusSenha;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

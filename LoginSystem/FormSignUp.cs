@@ -51,10 +51,9 @@ namespace LoginSystem
                 MessageBox.Show("Digite um e-mail válido! Verifique o e-mail digitado!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (txtMinCaracteres.ForeColor == Color.Red || txtLetraMaiuscula.ForeColor == Color.Red ||
-                txtLetraMinuscula.ForeColor == Color.Red || txtNumeros.ForeColor == Color.Red || txtCaracterEspecial.ForeColor == Color.Red)
+            if (txtStatusSenha.Text == "Senha fraca :(")
             {
-                MessageBox.Show("Senha muito fraca!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Senha muito fraca! Por favor registre uma senha mais segura!", "Erro ao cadastrar usuário!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             if (inputSenha.Text != inputRepitaSenha.Text)
@@ -117,9 +116,12 @@ namespace LoginSystem
         {
             // Limpa os inputs
             inputUsuario.Text = "DIGITE SEU EMAIL";
+            inputUsuario.ForeColor = Color.DimGray;
             inputSenha.Text = "DIGITE SUA SENHA";
+            inputSenha.ForeColor = Color.DimGray;
             inputSenha.UseSystemPasswordChar = false;
             inputRepitaSenha.Text = "DIGITE NOVAMENTE SUA SENHA";
+            inputRepitaSenha.ForeColor = Color.DimGray;
             inputRepitaSenha.UseSystemPasswordChar = false;
 
             // Limpa o icone de olho
@@ -253,53 +255,97 @@ namespace LoginSystem
             {
                 // Verifica se a senha tem pelo menos 8 caracteres
                 if (inputSenha.Text.Length >= 8)
+                {
                     txtMinCaracteres.ForeColor = Color.Green;
+                }
                 else
+                {
                     txtMinCaracteres.ForeColor = Color.Red;
+                }
 
                 // Verifica se a senha tem pelo menos 1 letra maiúscula
                 if (inputSenha.Text.Any(char.IsUpper))
+                {
                     txtLetraMaiuscula.ForeColor = Color.Green;
+                }
                 else
+                {
                     txtLetraMaiuscula.ForeColor = Color.Red;
+                }
 
                 // Verifica se a senha tem pelo menos 1 letra minúscula
                 if (inputSenha.Text.Any(char.IsLower))
+                { 
                     txtLetraMinuscula.ForeColor = Color.Green;
+                }
                 else
+                {
                     txtLetraMinuscula.ForeColor = Color.Red;
+                }
 
                 // Verifica se a senha tem pelo menos 1 número
                 if (inputSenha.Text.Any(char.IsDigit))
+                {
                     txtNumeros.ForeColor = Color.Green;
+                }
                 else
+                {
                     txtNumeros.ForeColor = Color.Red;
+                }
 
                 // Verifica se a senha tem pelo menos 1 caractere especial
                 if (inputSenha.Text.Any(c => !char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c)))
+                {
                     txtCaracterEspecial.ForeColor = Color.Green;
+                }
                 else
+                {
                     txtCaracterEspecial.ForeColor = Color.Red;
+                }
 
-                // Verificar se a senha é fraca, média ou forte
-                if (txtMinCaracteres.ForeColor != Color.Green &&
-                    txtLetraMinuscula.ForeColor != Color.Green && txtNumeros.ForeColor != Color.Green)
+                // Verifica a força da senha
+                string passwordStrength = GetPasswordStrength(inputSenha.Text);
+                txtStatusSenha.Text = passwordStrength;
+
+                switch (passwordStrength)
                 {
-                    txtStatusSenha.Text = "Senha fraca :(";
-                    txtStatusSenha.ForeColor = Color.Red;
+                    case "Senha fraca :(":
+                        txtStatusSenha.ForeColor = Color.Red;
+                        break;
+                    case "Senha média :o":
+                        txtStatusSenha.ForeColor = Color.Yellow;
+                        break;
+                    case "Senha forte :)":
+                        txtStatusSenha.ForeColor = Color.Green;
+                        break;
                 }
-                if (txtMinCaracteres.ForeColor == Color.Green && 
-                    txtLetraMinuscula.ForeColor == Color.Green && txtNumeros.ForeColor == Color.Green)
-                {
-                    txtStatusSenha.Text = "Senha média :o";
-                    txtStatusSenha.ForeColor = Color.Yellow;
-                }
-                if (txtMinCaracteres.ForeColor == Color.Green && txtLetraMaiuscula.ForeColor == Color.Green &&
-                txtLetraMinuscula.ForeColor == Color.Green && txtNumeros.ForeColor == Color.Green && txtCaracterEspecial.ForeColor == Color.Green)
-                {
-                    txtStatusSenha.Text = "Senha forte :)";
-                    txtStatusSenha.ForeColor = Color.Green;
-                }
+                
+            }
+        }
+
+        private string GetPasswordStrength(string password)
+        {
+            int score = 0;
+            if (password.Length >= 8) score++;
+            if (password.Any(char.IsUpper)) score++;
+            if (password.Any(char.IsLower)) score++;
+            if (password.Any(char.IsDigit)) score++;
+            if (password.Any(c => !char.IsLetterOrDigit(c))) score++;
+            progressBar1.Value = score * 20;
+
+            switch (score)
+            {
+                case 0:
+                case 1:
+                case 2:
+                    return "Senha fraca :(";
+                case 3:
+                case 4:
+                    return "Senha média :o";
+                case 5:
+                    return "Senha forte :)";
+                default:
+                    return "Senha fraca :(";
             }
         }
         #endregion
