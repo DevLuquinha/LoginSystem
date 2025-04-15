@@ -50,6 +50,7 @@
             this.linkPossuiConta = new System.Windows.Forms.LinkLabel();
             this.txtStatusSenha = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.txtVerificarCredencial = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoAberto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconeOlhoFechado)).BeginInit();
@@ -315,12 +316,24 @@
             this.progressBar1.Size = new System.Drawing.Size(231, 23);
             this.progressBar1.TabIndex = 20;
             // 
+            // txtVerificarCredencial
+            // 
+            this.txtVerificarCredencial.AutoSize = true;
+            this.txtVerificarCredencial.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.txtVerificarCredencial.Location = new System.Drawing.Point(277, 359);
+            this.txtVerificarCredencial.Name = "txtVerificarCredencial";
+            this.txtVerificarCredencial.Size = new System.Drawing.Size(184, 18);
+            this.txtVerificarCredencial.TabIndex = 21;
+            this.txtVerificarCredencial.Text = "Verificando credenciais...";
+            this.txtVerificarCredencial.Visible = false;
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 392);
+            this.Controls.Add(this.txtVerificarCredencial);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtStatusSenha);
             this.Controls.Add(this.linkPossuiConta);
@@ -382,6 +395,7 @@
         private System.Windows.Forms.LinkLabel linkPossuiConta;
         private System.Windows.Forms.Label txtStatusSenha;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label txtVerificarCredencial;
     }
 }
 

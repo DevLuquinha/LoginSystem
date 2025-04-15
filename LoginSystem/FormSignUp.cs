@@ -5,9 +5,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
-using System.Runtime.Serialization.Formatters;
-using System.Drawing.Imaging;
 using System.Linq;
 
 
@@ -92,15 +89,28 @@ namespace LoginSystem
                 string json = JsonConvert.SerializeObject(dados);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+                // Informa ao usuario que está sendo enviado a requisição
+                txtVerificarCredencial.Text = "Verificando credenciais...";
+                txtVerificarCredencial.ForeColor = Color.DodgerBlue;
+                txtVerificarCredencial.Visible = true;
+                linkPossuiConta.Enabled = false;
+                btnRegistrar.Enabled = false;
+
                 var response = await httpClient.PostAsync(url, content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Plugin Makeng!", "Cadastro Concluido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtVerificarCredencial.Text = "Cadastro realizado com sucesso!";
+                    MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Software do Lquinhas!", "Cadastro Concluido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
                 {
+                    txtVerificarCredencial.Text = "Erro ao cadastrar usuário!";
+                    txtVerificarCredencial.ForeColor = Color.Red;
+                    btnRegistrar.Enabled = true;
+                    linkPossuiConta.Enabled = true;
+                    // Lê o conteúdo da resposta
                     string erro = await response.Content.ReadAsStringAsync();
                     MessageBox.Show("Erro: " + erro, "Erro ao cadastrar usuário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }

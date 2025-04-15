@@ -75,16 +75,29 @@ namespace LoginSystem
                 string json = JsonConvert.SerializeObject(dados);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+                // Informa ao usuario que está sendo enviado a requisição
+                txtVerificarCredencial.Text = "Verificando credenciais...";
+                txtVerificarCredencial.ForeColor = Color.DodgerBlue;
+                txtVerificarCredencial.Visible = true;
+                btnEntrar.Enabled = false;
+                linkNaoPossuiConta.Enabled = false;
+
                 var response = await httpClient.PostAsync(url, content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Plugin Makeng!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtVerificarCredencial.Text = "Login realizado com sucesso!";
+                    
+                    MessageBox.Show("Login efetuado com sucesso! Bem-vindo novamente ao Software do Luquinhas!", "Login Finalizado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     string token = await response.Content.ReadAsStringAsync();
                     Close();
                 }
                 else
                 {
+                    txtVerificarCredencial.Text = "Erro ao cadastrar usuário!";
+                    txtVerificarCredencial.ForeColor = Color.Red;
+                    btnEntrar.Enabled = true;
+                    linkNaoPossuiConta.Enabled = true;
                     string erro = await response.Content.ReadAsStringAsync();
                     MessageBox.Show("Erro: " + erro, "Erro no login!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
