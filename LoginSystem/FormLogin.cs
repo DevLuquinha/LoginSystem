@@ -94,7 +94,7 @@ namespace LoginSystem
                 }
                 else
                 {
-                    txtVerificarCredencial.Text = "Erro ao cadastrar usuário!";
+                    txtVerificarCredencial.Text = "Erro ao logar usuário!";
                     txtVerificarCredencial.ForeColor = Color.Red;
                     btnEntrar.Enabled = true;
                     linkNaoPossuiConta.Enabled = true;

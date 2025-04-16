@@ -101,7 +101,7 @@ namespace LoginSystem
                 if (response.IsSuccessStatusCode)
                 {
                     txtVerificarCredencial.Text = "Cadastro realizado com sucesso!";
-                    MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Software do Lquinhas!", "Cadastro Concluido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cadastro de usuário realizado com sucesso! Bem-vindo ao Software do Luquinhas!", "Cadastro Concluido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 else
