@@ -76,7 +76,7 @@ namespace LoginSystem
             {
                 // http da minha API
                 var httpClient = new HttpClient();
-                var url = "https://loginapi-gz6f.onrender.com/api/Auth/signup";
+                string url = "https://login-api-us0s.onrender.com/api/Auth/signup";
 
                 // Objeto com os dados necessários
                 var dados = new
@@ -106,6 +106,7 @@ namespace LoginSystem
                 }
                 else
                 {
+                    // Caso o cadastro não seja realizado, mostra a mensagem de erro
                     txtVerificarCredencial.Text = "Erro ao cadastrar usuário!";
                     txtVerificarCredencial.ForeColor = Color.Red;
                     btnRegistrar.Enabled = true;
